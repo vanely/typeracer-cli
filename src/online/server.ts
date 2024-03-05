@@ -28,7 +28,8 @@ export class Typeracer {
     Typeracer.io = require("socket.io")(this.server);
 
     // MongoDb connecting
-    mongoose.connect(process.env.DATABASE, { useNewUrlParser: true }).then(() => {
+    mongoose.connect(process.env.MONGO_DB!, { useNewUrlParser: true }).then(() => {
+      console.log(['Mongo Connection String: ', process.env.MONGO_DB]);
       output("Mongo Connected!");
     }).catch((err) => {
       output("Cannot connect to database because " + err);
